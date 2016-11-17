@@ -6,5 +6,5 @@ A game of plants vs. humans.
 
 * clone the repo
 * `npm install`
-* `npm start:server`
-* `npm start:client`
+* `npm run start:server`
+* `npm run start:client`
