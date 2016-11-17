@@ -5,7 +5,15 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
-    "noEmitHelpers": true
+    "noEmitHelpers": true,
+    "types": [
+      "node",
+      "lodash",
+      "mongodb"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
   "compileOnSave": false,
   "buildOnSave": false,
