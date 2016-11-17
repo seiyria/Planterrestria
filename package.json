@@ -9,7 +9,7 @@
     "test": "npm run lint:lint:fail",
     "docs": "typedoc --options typedoc.json src/client/app/app.component.ts",
     "start": "npm run start:server",
-    "start:server": "nodemon --exec ./node_modules/.bin/ts-node -- ./src/server/index.ts",
+    "start:server": "nodemon --exec \"ts-node\" -- \"src/server/index.ts\"",
     "start:client": "webpack-dev-server --open --inline --hot --port 9090 --host 0.0.0.0"
   },
   "dependencies": {
