@@ -6,7 +6,7 @@ export const operate = ({ socket, respond }) => {
   const listener = () => {
     respond({
       update: 'Map',
-      data: new Map()
+      data: new Map().exportPolygons()
     })
   };
 
