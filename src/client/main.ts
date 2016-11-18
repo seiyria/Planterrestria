@@ -7,9 +7,9 @@ if (process.env.NODE_ENV === 'production') {
   enableProdMode();
 }
 
-export function main() {
+export const main = () => {
   return platformBrowserDynamic().bootstrapModule(AppModule);
-}
+};
 
 if (document.readyState === 'complete') {
   main();

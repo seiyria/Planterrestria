@@ -28,17 +28,19 @@ export class WorldMapCreator {
 
   exportPolygons(): Map {
 
-    let p;      //Center;
-    let q;      //Corner;
-    let r;      //Center;
-    let s;      //Corner;
-    let edge;   //Edge;
+    /*
+    let p;      // Center;
+    let q;      // Corner;
+    let r;      // Center;
+    let s;      // Corner;
+    let edge;   // Edge;
 
     let dnodes = [];
     let edges = [];
     let vnodes = [];
     let outroads = [];
     let edgeNode;
+    */
 
     const mapExport = {
       seed: this.map.seed,

@@ -29,7 +29,6 @@ export class PrimusService {
     });
 
     this.socket.on('data', data => {
-      console.log(data);
       if(!this[`handle${data.updateType}`]) { return; }
       this[`handle${data.updateType}`](data);
 

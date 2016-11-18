@@ -12,8 +12,11 @@ const getAllSocketFunctions = (dir) => {
   _.each(list, basefilename => {
     const filename = `${dir}/${basefilename}`;
     const stat = fs.statSync(filename);
-    if(stat && stat.isDirectory()) results = results.concat(getAllSocketFunctions(filename));
-    else if(_.includes(basefilename, '.socket')) results.push(filename);
+    if(stat && stat.isDirectory()) {
+      results = results.concat(getAllSocketFunctions(filename));
+    } else if(_.includes(basefilename, '.socket')) {
+      results.push(filename);
+    }
   });
 
   return results;
@@ -34,21 +37,21 @@ export const primus = () => {
 
   server.listen(process.env.PORT || 8080);
 
-  const primus = new Primus(server, { iknowhttpsisbetter: true, parser: 'JSON', transformer: 'websockets' });
-  primus.plugin('emit', require('primus-emit'));
+  const primusInstance = new Primus(server, { iknowhttpsisbetter: true, parser: 'JSON', transformer: 'websockets' });
+  primusInstance.plugin('emit', require('primus-emit'));
 
   const normalizedPath = require('path').join(__dirname, '..');
 
   const allSocketFunctions = getAllSocketFunctions(normalizedPath);
   const allSocketRequires = _.map(allSocketFunctions, require);
 
-  primus.on('connection', spark => {
+  primusInstance.on('connection', spark => {
     const respond = (data) => {
       spark.write(data);
     };
 
     _.each(allSocketRequires, obj => {
-      obj.operate({ socket: spark, primus, respond: (data) => {
+      obj.operate({ socket: spark, primus: primusInstance, respond: (data) => {
         data.event = obj.event;
         respond(data);
       }});
@@ -57,7 +60,7 @@ export const primus = () => {
   });
 
   if(process.env.NODE_ENV !== 'production') {
-    primus.save(`${require('app-root-path')}/src/client/app/primus.gen.js`);
+    primusInstance.save(`${require('app-root-path')}/src/client/app/primus.gen.js`);
   }
 };
 

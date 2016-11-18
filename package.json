@@ -4,8 +4,8 @@
   "license": "GPL-3.0",
   "scripts": {
     "build:app": "webpack -p --progress && cp src/client/public/index.html dist/index.html && echo '/*    /index.html   200' > dist/_redirects",
-    "test:lint": "tslint --force src/**/*.ts",
-    "test:lint:fail": "tslint src/**/*.ts",
+    "test:lint": "tslint --force 'src/**/*.ts'",
+    "test:lint:fail": "tslint 'src/**/*.ts'",
     "test": "npm run test:lint:fail",
     "docs": "typedoc --options typedoc.json src/client/app/app.component.ts",
     "start": "npm run start:server",

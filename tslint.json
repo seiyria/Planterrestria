@@ -44,6 +44,10 @@
     "no-empty": false,
     "no-eval": true,
     "no-inferrable-types": true,
+    "no-namespace": [true, "allow-declarations"],
+    "no-reference": true,
+    "no-internal-module": true,
+    "no-invalid-this": true,
     "no-shadowed-variable": true,
     "no-string-literal": false,
     "no-switch-case-fall-through": true,
@@ -54,6 +58,7 @@
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
+    "only-arrow-functions": true,
     "one-line": [
       true,
       "check-open-brace",
