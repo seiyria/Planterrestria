@@ -15,6 +15,5 @@ try {
 process.on('uncaughtException', e => console.error(e));
 process.on('unhandledRejection', reason => console.error(reason));
 
-
 require('./core/primus');
 require('./core/gameloop');

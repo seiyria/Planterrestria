@@ -25,7 +25,6 @@ export class WorldMapCreator {
     this.map.go4DecorateMap();
   }
 
-
   exportPolygons(): Map {
 
     /*
